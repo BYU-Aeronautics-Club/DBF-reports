@@ -1,0 +1,63 @@
+% !TeX spellcheck = en_US 
+\documentclass[report]{byu-aero}
+
+%This sets the visible levels shown on the Table of Contents. 2 will show the Sections and Subsections. This seems okay to save some space. If you want to show subsubsections change it to 3. 1 will just show the sections, but that seems too brief.
+\setcounter{tocdepth}{2}
+
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!%
+%!!!!!!! UNLESS YOU KNOW WHAT YOU'RE DOING, DO NOT TOUCH ANYTHING ABOVE THIS LINE !!!!!!!%
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%   Text Body   %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% Title Page
+\includepdf[page=-]{titlepage.pdf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%   Table of Contents   %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{page}{2} %This sets the page counter to 2, since the Title page is counted as page 1
+\thispagestyle{tocpage} %This uses the alternate table of contents page header style
+\tableofcontents %This makes the table of contents
+%The following 3 lines add the Table of Contents "section" to the Table of Contents
+%\phantomsection
+%\addcontentsline{toc}{section}{Table of Contents}
+%\markboth{Table of Contents}{Table of Contents}
+
+\clearpage
+\newpage
+
+\input{sections/summary_organization_timeline.tex}
+
+\input{sections/conceptual_design.tex}
+
+\input{sections/preliminary_design.tex}
+
+\input{sections/detailed_design.tex}
+
+\input{sections/drawing_package.tex}
+
+\input{sections/manufacturing_plan.tex}
+
+\input{sections/testing_plan.tex}
+
+\input{sections/performance_results.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%           BIBLIOGRAPHY            %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Bibliography (5 Points)
+% 1) List of all published works referenced in the text must be present in this section.
+% 2) Any material taken from a published source in all previous sections must have a numerical subscript corresponding to the appropriate citation in this section.
+% 3) References should appear in numerical order.
+% 4) Format should match AIAA provided guidelines:
+%\newpage
+%\clearpage
+\bibliography{ref}{}
+\bibliographystyle{aiaa}
+
+\end{document}
