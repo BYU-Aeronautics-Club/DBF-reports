@@ -178,7 +178,7 @@ rectangle
 rectangle
 , draw=\BYUblue
 , fill=\BYUbluelite
-, text width=5em
+, text width=8em
 , text centered
 , node distance=0cm
 , rounded corners

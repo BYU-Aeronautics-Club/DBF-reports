@@ -1,0 +1,45 @@
+%%TEAM ORGANIZATION
+%\begin{wrapfigure}[7]{R}{0in}
+%	\centering
+%	\raisebox{0pt}[\dimexpr\height-3\baselineskip\relax]{
+\documentclass[]{../byu-aero}
+
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength{\PreviewBorder}{0em}
+
+\begin{document}
+
+
+\begin{tikzpicture}[node distance = 1cm, auto]
+
+	% Place nodes
+	\node [block,shift={(-1,0)}, minimum width=1cm] (Advisor) {\footnotesize Advisor};
+	\node [block, below left = 0.15 and -1.0cm  of Advisor] (Engineering Lead) {\footnotesize Engineering Lead};
+	\node [block, below right = 0.15 and -1.0cm   of Advisor] (Project Manager) {\footnotesize Project Manager};
+
+	\node [block2, below = 0.25 of Engineering Lead] (Aerostructures) {\footnotesize Aerostructures};
+
+	\node [block2, below = 1 of Engineering Lead] (Propulsion/Piloting) {\footnotesize Propulsion/Piloting};
+	\node [block2, below  = 0.25 of Project Manager] (Payload Systems) {\footnotesize Payload Systems};
+	\node [block2, below  = 1 of Project Manager] (Graphics/Manufacturing) {\footnotesize Graphics/Manufacturing};
+
+
+	% Draw edges
+%	\path[line] let \p1=(Advisor.south), \p2=(Engineering Lead.east) in (Advisor.south) --  +(0,0.55*\y2) -| node {} (Engineering Lead.east);
+%	\path[line] let \p1=(Advisor.south), \p2=(Project Manager.west) in (Advisor.south) -- +(0,0.55*\y2) -| node {} (Project Manager.west);
+
+	\path[line] let \p1=(Engineering Lead.east), \p2=(Aerostructures.east) in (Engineering Lead.east) -- +(0.35,0.0) -- +(0.35,0.55*\y2) -| node  {} (Aerostructures.east);
+	
+	\path[line] let \p1=(Engineering Lead.east), \p2=(Payload Systems.west) in (Engineering Lead.east) -- +(0.35,0.0) -- +(0.35,0.55*\y2) -| node  {} (Payload Systems.west);
+
+	\path[line] let \p1=(Engineering Lead.east), \p2=(Graphics/Manufacturing.west) in (Engineering Lead.east) -- +(0.35,0.0) -- +(0.35,0.7*\y2) -| node  {} (Graphics/Manufacturing.west);
+
+	\path[line] let \p1=(Engineering Lead.east), \p2=(Propulsion/Piloting.east) in (Engineering Lead.east) -- +(0.35,0.0) -- +(0.35,0.7*\y2) -| node  {} (Propulsion/Piloting.east);
+
+\end{tikzpicture}%}
+%	\caption{Here we show the structure of, and assignment areas within, our team organization.}
+%	\label{fig:personnelassignments}
+%\end{wrapfigure}
+
+\end{document}
