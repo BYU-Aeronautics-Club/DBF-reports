@@ -21,8 +21,7 @@
 \LoadClass[10pt]{article}
 
 
-
-\RequirePackage[usenames,dvipsnames,table]{xcolor}% This loads a package that allows extra colors for links.
+\RequirePackage[usenames,dvipsnames]{color}% This loads a package that allows extra colors for links.
 \definecolor{BYUblue}{RGB}{0,46,93}
 \definecolor{BYUbluelite}{RGB}{221,227,233}
 \definecolor{BYUbluemid}{RGB}{151,169,189}
@@ -49,16 +48,16 @@
 \RequirePackage{lipsum}
 
 \RequirePackage[letterpaper,
-left=0.35in,
-right=0.35in,
-top=0.75in,
-bottom=0.5in,
-footskip=0.25in,
-headheight=0.75in,
-headsep=0.125in,
-marginparsep=0pt,
+				left=0.35in,
+				right=0.35in,
+				top=0.75in,
+				bottom=0.5in,
+				footskip=0.25in,
+				headheight=0.75in,
+				headsep=0.125in,
+				marginparsep=0pt,
 %				showframe
-]{geometry}
+				]{geometry}
 
 
 \RequirePackage{enumitem}
@@ -81,20 +80,20 @@ marginparsep=0pt,
 %\renewcommand{\thesubsection}{\thesection.\Alph{subsection}}
 %\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 \titleformat{\section}
-{\color{BYUblue}\bfseries\singlespacing}
-{\Roman{section}\space\space}{0pt}{#1}[]
+  {\color{BYUblue}\bfseries\singlespacing}
+  {\Roman{section}\space\space}{0pt}{#1}[]
 \titlespacing{\section}{0pt}{-1ex}{-1ex}
 \titleformat{\subsection}
-{\color{BYUblue}\normalsize\bfseries\singlespacing}
-{\Roman{section}.\Alph{subsection}\space\space}{0pt}{#1}[]
+  {\color{BYUblue}\normalsize\bfseries\singlespacing}
+  {\Roman{section}.\Alph{subsection}\space\space}{0pt}{#1}[]
 \titlespacing{\subsection}{1ex}{-1ex}{-0.5ex}
 \titleformat{\subsubsection}
 {\color{BYUblue}\normalsize\bfseries\singlespacing}
 {\Roman{section}.\Alph{subsection}.\arabic{subsubsection}\space\space}{0pt}{#1}[]
 \titlespacing{\subsubsection}{2ex}{-1.5ex}{-0.5ex}
 \titleformat{\paragraph}[runin]
-{\normalfont\normalsize\slshape\color{\BYUblue}}
-{}{0pt}{#1}[]
+	{\normalfont\normalsize\slshape\color{\BYUblue}}
+	{}{0pt}{#1}[]
 \titlespacing{\paragraph}{-1pt}{-1pt}{1ex}
 
 %\titlespacing*{\section}{0pt}{-5pt}{0pt}
@@ -144,8 +143,15 @@ marginparsep=0pt,
 \RequirePackage{wrapfig}
 
 %tables
+\RequirePackage[table]{xcolor}
 \RequirePackage{multirow}
-%\usepackage{booktabs}
+\usepackage{booktabs}
+
+%Various usefule column types for tables.
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{B}[1]{>{\cellcolor{BYUbluemid}\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{?}{!{\color{white}\vrule width 2pt}}
+\newcolumntype{/}{!{\color{BYUgray}\vrule}}
 
 %%TIKZ
 \usepackage{tikz}
@@ -225,14 +231,14 @@ draw
 \renewcommand{\headrulewidth}{0pt} % This eliminates the line at the top of pages.
 
 \newcommand\NextYear{%
-	\advance\year by 1 \the\year\advance\year by -1}
-
+   \advance\year by 1 \the\year\advance\year by -1}
+   
 \if@proposal %
 \chead{
-	\parbox[b][3em][t]{0.75\textwidth}{
-		\centering
-		\Large{\color{BYUblue} Brigham Young University Aeronautics Club}\\
-		\small{\NextYear~AIAA Design Build Fly Competition Proposal}}
+\parbox[b][3em][t]{0.75\textwidth}{
+\centering
+\Large{\color{BYUblue} Brigham Young University Aeronautics Club}\\
+\small{\NextYear~AIAA Design Build Fly Competition Proposal}}
 }
 \fi
 
@@ -241,7 +247,7 @@ draw
 	\parbox[b][3em][t]{0.75\textwidth}{
 		\centering
 		\Large{\color{BYUblue} Brigham Young University Aeronautics Club}\\
-		\small{\NextYear~AIAA Design Build Fly Competition Design Report}}
+		\small{\the\year~AIAA Design Build Fly Competition Design Report}}
 }
 \fi
 
