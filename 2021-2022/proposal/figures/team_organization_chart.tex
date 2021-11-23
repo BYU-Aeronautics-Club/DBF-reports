@@ -8,35 +8,51 @@
 \PreviewEnvironment{tikzpicture}
 \setlength{\PreviewBorder}{0em}
 
+\tikzstyle{block1} = [rectangle, draw=\BYUblue, fill=\BYUbluelite, text width=1.35cm, text centered, rounded corners, minimum height=2.5em]
+
+\tikzstyle{arrowblue} = [->,>=stealth,draw=\BYUblue]
+\tikzstyle{arrowred} = [->,>=stealth,draw=\BYUred]
+
+
 \begin{document}
 
-
-\begin{tikzpicture}[node distance = 1cm, auto]
+\spacing{.8}
+\begin{tikzpicture}[node distance = 0.5cm, auto]
 
 	% Place nodes
-	\node [block,shift={(-1,0)}, minimum width=1cm] (Advisor) {\footnotesize Advisor};
-	\node [block, below left = 0.15 and -1.0cm  of Advisor] (Engineering Lead) {\footnotesize Engineering Lead};
-	\node [block, below right = 0.15 and -1.0cm   of Advisor] (Project Manager) {\footnotesize Project Manager};
-
-	\node [block2, below = 0.25 of Engineering Lead] (Aerostructures) {\footnotesize Aerostructures};
-
-	\node [block2, below = 1 of Engineering Lead] (Propulsion/Piloting) {\footnotesize Propulsion/Piloting};
-	\node [block2, below  = 0.25 of Project Manager] (Payload Systems) {\footnotesize Payload Systems};
-	\node [block2, below  = 1 of Project Manager] (Graphics/Manufacturing) {\footnotesize Graphics/Manufacturing};
-
-
-	% Draw edges
-%	\path[line] let \p1=(Advisor.south), \p2=(Engineering Lead.east) in (Advisor.south) --  +(0,0.55*\y2) -| node {} (Engineering Lead.east);
-%	\path[line] let \p1=(Advisor.south), \p2=(Project Manager.west) in (Advisor.south) -- +(0,0.55*\y2) -| node {} (Project Manager.west);
-
-	\path[line] let \p1=(Engineering Lead.east), \p2=(Aerostructures.east) in (Engineering Lead.east) -- +(0.35,0.0) -- +(0.35,0.55*\y2) -| node  {} (Aerostructures.east);
+	\node [minimum width=1cm] (Advisor) {BYU DBF Team};
 	
-	\path[line] let \p1=(Engineering Lead.east), \p2=(Payload Systems.west) in (Engineering Lead.east) -- +(0.35,0.0) -- +(0.35,0.55*\y2) -| node  {} (Payload Systems.west);
+	\node [block1, below left = 0.15cm and -1.0cm  of Advisor] (Engineering Lead) {\footnotesize Engineering\\Lead};
+	\node [block1,draw=\BYUred, below right = 0.15cm and -1.0cm   of Advisor] (Project Manager) {\footnotesize Project\\Manager};
 
-	\path[line] let \p1=(Engineering Lead.east), \p2=(Graphics/Manufacturing.west) in (Engineering Lead.east) -- +(0.35,0.0) -- +(0.35,0.7*\y2) -| node  {} (Graphics/Manufacturing.west);
+	\node [block, below = 1.25cm of Advisor] (Aerostructures) {\footnotesize Aerostructures};
 
-	\path[line] let \p1=(Engineering Lead.east), \p2=(Propulsion/Piloting.east) in (Engineering Lead.east) -- +(0.35,0.0) -- +(0.35,0.7*\y2) -| node  {} (Propulsion/Piloting.east);
+	\node [block, below = 1.95cm of Advisor] (Propulsion/Piloting) {\footnotesize Propulsion/Piloting};
+	
+	\node [block, below  = 2.65cm of Advisor] (Payload Systems) {\footnotesize Payload Systems};
+	
+	\node [block, below  = 3.35cm of Advisor] (Graphics/Manufacturing) {\footnotesize Graphics/Manufacturing};
+	
 
+	
+	
+	\draw[arrowred] (Project Manager) -- (Engineering Lead);
+	\draw[arrowred] (Project Manager) --  ++(1cm,0) |- (Aerostructures);
+	\draw[arrowred] (Project Manager) --  ++(1cm,0) |- (Propulsion/Piloting);
+	\draw[arrowred] (Project Manager) --  ++(1cm,0) |- (Payload Systems);
+	\draw[arrowred] (Project Manager) --  ++(1cm,0) |- (Graphics/Manufacturing);
+	
+		\draw[arrowblue] (Engineering Lead) --  ++(-1cm,0) |- (Aerostructures);
+	\draw[arrowblue] (Engineering Lead) --  ++(-1cm,0) |- (Propulsion/Piloting);
+	\draw[arrowblue] (Engineering Lead) --  ++(-1cm,0) |- (Payload Systems);
+	\draw[arrowblue] (Engineering Lead) --  ++(-1cm,0) |- (Graphics/Manufacturing);
+
+
+
+
+
+	\draw[draw=\BYUblue, rounded corners] ($(current bounding box.south east)+(6pt,-6pt)$) rectangle ($(current bounding box.north west)+(-6pt,6pt)$);
+	
 \end{tikzpicture}%}
 %	\caption{Here we show the structure of, and assignment areas within, our team organization.}
 %	\label{fig:personnelassignments}

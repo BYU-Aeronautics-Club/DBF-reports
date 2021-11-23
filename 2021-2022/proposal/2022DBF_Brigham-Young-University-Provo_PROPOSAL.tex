@@ -1,8 +1,10 @@
 % !TeX spellcheck = en_US 
 \documentclass[proposal]{byu-aero}
 
-\usepackage{lipsum}
-
+\usepackage{makecell}
+\renewcommand{\theadalign}{cl}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\newcommand{\notopspacing}[1]{\raisebox{\dimexpr\arraystretch\ht\strutbox-\height\relax}{#1}}
 %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!%
 %!!!!!!! UNLESS YOU KNOW WHAT YOU'RE DOING, DO NOT TOUCH ANYTHING IN THIS FILE !!!!!!!!!!%
 %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!%

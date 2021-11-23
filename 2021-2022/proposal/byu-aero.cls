@@ -77,9 +77,9 @@ marginparsep=0pt,
 
 
 \RequirePackage[explicit]{titlesec}
-%\renewcommand{\thesection}{\Roman{section}}
-%\renewcommand{\thesubsection}{\thesection.\Alph{subsection}}
-%\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\thesection.\Alph{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 \titleformat{\section}
 {\color{BYUblue}\bfseries\singlespacing}
 {\Roman{section}\space\space}{0pt}{#1}[]
@@ -88,14 +88,14 @@ marginparsep=0pt,
 {\color{BYUblue}\normalsize\bfseries\singlespacing}
 {\Roman{section}.\Alph{subsection}\space\space}{0pt}{#1}[]
 \titlespacing{\subsection}{1ex}{-1ex}{-0.5ex}
-\titleformat{\subsubsection}
-{\color{BYUblue}\normalsize\bfseries\singlespacing}
+\titleformat{\subsubsection}[runin]
+{\normalfont\normalsize\bfseries\color{\BYUblue}}
 {\Roman{section}.\Alph{subsection}.\arabic{subsubsection}\space\space}{0pt}{#1}[]
-\titlespacing{\subsubsection}{2ex}{-1.5ex}{-0.5ex}
+\titlespacing{\subsubsection}{2ex}{-1pt}{1ex}
 \titleformat{\paragraph}[runin]
-{\normalfont\normalsize\slshape\color{\BYUblue}}
+{\normalfont\normalsize\bfseries\color{\BYUblue}}
 {}{0pt}{#1}[]
-\titlespacing{\paragraph}{-1pt}{-1pt}{1ex}
+\titlespacing{\paragraph}{3ex}{-1pt}{1ex}
 
 %\titlespacing*{\section}{0pt}{-5pt}{0pt}
 
@@ -107,8 +107,14 @@ marginparsep=0pt,
 \renewcommand{\thetable}{\color{\BYUblue}\arabic{table}}
 \captionsetup*{labelsep=space}
 \RequirePackage{subcaption}
-\renewcommand{\thesubfigure}{\color{\BYUblue}\alph{subfigure})}
+\renewcommand{\thesubfigure}{\color{\BYUblue}\alph{subfigure}}
 \captionsetup[subfigure]{labelsep=space,labelformat=simple}
+
+%Various usefule column types for tables.
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{B}[1]{>{\cellcolor{BYUbluemid}\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{?}{!{\color{white}\vrule width 2pt}}
+\newcolumntype{/}{!{\color{BYUgray}\vrule}}
 
 \renewcommand{\arraystretch}{1.2}
 
@@ -135,7 +141,6 @@ marginparsep=0pt,
 	filecolor=BYUblue,
 	linktoc=all}
 \usepackage[noabbrev]{cleveref}
-
 
 %CUSTOM ADDED STUFF
 %FIGURES
@@ -178,7 +183,7 @@ rectangle
 rectangle
 , draw=\BYUblue
 , fill=\BYUbluelite
-, text width=8em
+, text width=5em
 , text centered
 , node distance=0cm
 , rounded corners
@@ -271,3 +276,5 @@ draw
 {\hspace*{0em}}
 {\hfill\contentspage}
 
+% Set up todo notes
+\usepackage{todonotes}
