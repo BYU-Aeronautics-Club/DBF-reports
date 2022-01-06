@@ -1,0 +1,117 @@
+% expanded CO architecture diagram produced by the TikZ package
+\documentclass[]{../byu-aero}
+
+\def \theyear {2022}
+\def \nextyear {2023}
+
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength{\PreviewBorder}{0em}
+
+
+%GANTT CHART
+\usepackage{pgfgantt}
+\ganttset{
+	time slot format=isodate,
+	time slot unit=day,
+	x unit=0.05cm,
+	y unit title=0.4cm,
+	y unit chart=0.4cm,
+	hgrid,
+	canvas/.append style={draw=\BYUblue},
+	%
+	title label font=\bfseries\scriptsize,
+	title height=1,
+	title/.style={fill=\BYUbluelite,draw=\BYUblue},
+	%
+	today = \theyear-10-31,
+	today label = Current Date,
+	today label font=\itshape\tiny,
+	today rule/.style={draw=\BYUgray,dashed},
+	%
+	group/.append style={fill=\BYUbluemid,draw=\BYUblue},
+	group top shift=0.25,
+	group height=.25,
+	group right peak tip position=0.0,
+	group left peak tip position=0.0,
+	group peaks width=2.0,
+	group peaks height=0.25,
+	group label font = \bfseries\small,
+	%
+	bar/.append style={fill=\BYUblue,draw=\BYUblue},
+	bar label font=\small,
+	bar height = 0.25,
+	%	bar top shift = 0.25,
+	progress label text = {},
+	%
+	milestone/.append style={fill=\BYUbluelite,draw=\BYUblue,xscale=12},
+	milestone height = 0.95,
+	milestone top shift = 0.0,
+	milestone label font = \itshape\small,
+	%	link/.append style={draw=\BYUblue},
+	link tolerance = 10,
+	link bulge = 10,
+}
+
+
+\begin{document}
+	\begin{figure}[h!]
+		\centering
+		\begin{ganttchart}[]{\theyear-09-01}{\nextyear-04-30}
+			\gantttitlecalendar{year, month=shortname} \\
+			%
+			%%--DESIGN--%%
+			%
+			\ganttgroup{Design}{\theyear-09-14}{\nextyear-01-28} \\
+			\ganttbar[progress=100]{Conceptual Design}{\theyear-09-14}{\theyear-10-07} \\
+			\ganttbar[progress=0]{Preliminary Design}{\theyear-10-31}{\theyear-12-01} \\
+			\ganttbar[progress=0]{Detailed Design}{\theyear-12-28}{\nextyear-01-28} \\
+			%
+			%%--PROTOTYPING--%%
+			%
+			\ganttgroup{Build}{\theyear-10-01}{\nextyear-02-01} \\
+			\ganttbar[progress=100]{Conceptual Prototypes}{\theyear-10-01}{\theyear-10-14} \\
+			\ganttbar[progress=0]{Preliminary Prototypes}{\theyear-11-14}{\theyear-12-14} \\
+			\ganttbar[progress=0]{Detailed Prototypes}{\nextyear-01-07}{\nextyear-02-01} \\
+			\ganttbar[progress=0]{Final Build}{\nextyear-02-20}{\nextyear-03-21}\\
+			%
+			%%--TESTING--%%
+			%
+			\ganttgroup{Fly}{\theyear-10-07}{\nextyear-03-28} \\
+			\ganttbar[progress=100]{Conceptual Testing}{\theyear-10-07}{\theyear-10-28}\\
+			\ganttbar[progress=0]{Preliminary Testing}{\theyear-12-01}{\theyear-12-21}\\
+			\ganttbar[progress=0]{Detailed Testing}{\nextyear-01-14}{\nextyear-02-07}\\
+			\ganttbar[progress=0]{Practice Runs}{\nextyear-03-21}{\nextyear-03-28}\\
+			%
+			%%--COMPETING--%%
+			%
+			\ganttgroup{Competition Milestones}{\theyear-10-31}{\nextyear-04-16} \\
+			\ganttmilestone[milestone/.append style={label={[inner sep=0pt]right:{\itshape\scriptsize \color{\BYUblue} 31 Oct}}}]{Submit Proposal}{\theyear-10-31} \\
+%			\ganttmilestone[inline]{31 Oct}{\theyear-10-30} \\
+			\ganttmilestone[milestone/.append style={label={[inner sep=0pt]right:{\itshape\scriptsize \color{\BYUblue} 17 Dec}}}]{Preliminary Design Review}{\theyear-12-17} \\
+			\ganttmilestone[milestone/.append style={label={[inner sep=0pt]right:{\itshape\scriptsize \color{\BYUblue} 02 Feb}}}]{Submit Design Report}{\nextyear-02-20} \\
+			\ganttmilestone[milestone/.append style={label={[inner sep=0pt]right:{\itshape\scriptsize \color{\BYUblue} 01 Apr}}}]{Submit Proof of Flight}{\nextyear-04-01} \\
+			\ganttmilestone[milestone/.append style={label={[inner sep=0pt]left:{\itshape\scriptsize \color{\BYUblue} 16 Apr}}}]{Fly-off}{\nextyear-04-16}
+			%
+			%
+			%%--VERTICAL RULE--%%
+%			\ganttvrule[vrule/.append style={draw=\BYUgray}]{\tiny \textit{Current Date}}{\theyear-10-30}
+			today=\theyear-10-30
+			%
+			%%--LINKS--%%
+			%
+			\ganttlink[link/.append style={draw=\BYUblue}]{elem1}{elem5}
+			\ganttlink[link/.append style={draw=\BYUblue}]{elem5}{elem10}
+			\ganttlink[link/.append style={draw=\BYUblue}]{elem10}{elem15}
+			%
+			\ganttlink[link/.append style={draw=\BYUred}]{elem2}{elem6}
+			\ganttlink[link/.append style={draw=\BYUred}]{elem6}{elem11}
+			\ganttlink[link/.append style={draw=\BYUred}]{elem11}{elem16}
+			%
+			\ganttlink[link/.append style={draw=\BYUgreen}]{elem3}{elem7}
+			\ganttlink[link/.append style={draw=\BYUgreen}]{elem7}{elem12}
+			\ganttlink[link/.append style={draw=\BYUgreen}]{elem12}{elem17}
+		\end{ganttchart}
+	\end{figure}
+	
+\end{document}

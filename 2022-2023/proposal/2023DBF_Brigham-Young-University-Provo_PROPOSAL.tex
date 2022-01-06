@@ -1,0 +1,45 @@
+% !TeX spellcheck = en_US 
+\documentclass[proposal]{byu-aero}
+
+\usepackage{makecell}
+\renewcommand{\theadalign}{cl}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\newcommand{\notopspacing}[1]{\raisebox{\dimexpr\arraystretch\ht\strutbox-\height\relax}{#1}}
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!%
+%!!!!!!! UNLESS YOU KNOW WHAT YOU'RE DOING, DO NOT TOUCH ANYTHING IN THIS FILE !!!!!!!!!!%
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%   Text Body   %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\input{sections/executive_summary}
+
+\input{sections/management_summary}
+
+\input{sections/team_organization}
+
+\input{sections/schedule}
+
+\input{sections/budget}
+
+\input{sections/conceptual_design}
+
+\input{sections/manufacturing_plan}
+
+\input{sections/testing_plan}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%          BIBLIOGRAPHY         %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Bibliography (5 Points)
+%\item List of all published works referenced in the text must be present in this section.
+%\item Any material taken from a published source in all previous sections must have a numerical subscript corresponding to the appropriate citation in this section.
+%\item References should appear in numerical order.
+%\item Format should match AIAA provided guidelines:
+
+\bibliography{ref}{}
+\bibliographystyle{aiaa}
+
+\end{document}

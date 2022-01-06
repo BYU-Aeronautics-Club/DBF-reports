@@ -1,0 +1,61 @@
+%%TEAM ORGANIZATION
+%\begin{wrapfigure}[7]{R}{0in}
+%	\centering
+%	\raisebox{0pt}[\dimexpr\height-3\baselineskip\relax]{
+\documentclass[]{../byu-aero}
+
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength{\PreviewBorder}{0em}
+
+\tikzstyle{block1} = [rectangle, draw=\BYUblue, fill=\BYUbluelite, text width=1.35cm, text centered, rounded corners, minimum height=2.5em]
+
+\tikzstyle{arrowblue} = [->,>=stealth,draw=\BYUblue]
+\tikzstyle{arrowred} = [->,>=stealth,draw=\BYUred]
+
+
+\begin{document}
+
+\spacing{.8}
+\begin{tikzpicture}[node distance = 0.5cm, auto]
+
+	% Place nodes
+	\node [minimum width=1cm] (Advisor) {BYU DBF Team};
+	
+	\node [block1, below left = 0.15cm and -1.0cm  of Advisor] (Engineering Lead) {\footnotesize Engineering\\Lead};
+	\node [block1,draw=\BYUred, below right = 0.15cm and -1.0cm   of Advisor] (Project Manager) {\footnotesize Project\\Manager};
+
+	\node [block, below = 1.25cm of Advisor] (Aerostructures) {\footnotesize Aerostructures};
+
+	\node [block, below = 1.95cm of Advisor] (Propulsion/Piloting) {\footnotesize Propulsion/Piloting};
+	
+	\node [block, below  = 2.65cm of Advisor] (Payload Systems) {\footnotesize Payload Systems};
+	
+	\node [block, below  = 3.35cm of Advisor] (Graphics/Manufacturing) {\footnotesize Graphics/Manufacturing};
+	
+
+	
+	
+	\draw[arrowred] (Engineering Lead) -- (Project Manager);
+	\draw[arrowred] (Aerostructures) --  ++(2.125cm,0) |- (Project Manager);
+	\draw[arrowred] (Propulsion/Piloting) --  ++(2.125cm,0) |- (Project Manager);
+	\draw[arrowred] (Payload Systems) --  ++(2.125cm,0) |- (Project Manager);
+	\draw[arrowred] (Graphics/Manufacturing) --  ++(2.125cm,0) |- (Project Manager);
+	
+		\draw[arrowblue] (Aerostructures) --  ++(-2.125cm,0) |- (Engineering Lead);
+	\draw[arrowblue] (Propulsion/Piloting) --  ++(-2.125cm,0) |- (Engineering Lead);
+	\draw[arrowblue] (Payload Systems) --  ++(-2.125cm,0) |- (Engineering Lead);
+	\draw[arrowblue] (Graphics/Manufacturing) --  ++(-2.125cm,0) |- (Engineering Lead);
+
+
+
+
+
+	\draw[draw=\BYUblue, rounded corners] ($(current bounding box.south east)+(6pt,-6pt)$) rectangle ($(current bounding box.north west)+(-6pt,6pt)$);
+	
+\end{tikzpicture}%}
+%	\caption{Here we show the structure of, and assignment areas within, our team organization.}
+%	\label{fig:personnelassignments}
+%\end{wrapfigure}
+
+\end{document}
